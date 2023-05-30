@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: apt-get update -y && apt-get install -y make protobuf-compiler
-      - run: mvn install -Dskip.gpg
+      - run: make pom.xml && mvn install -Dskip.gpg
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
