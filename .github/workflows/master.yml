@@ -1,0 +1,24 @@
+name: Build asyncbase master
+on:
+  push:
+    branches:
+      - using-github-make-repo
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt-get update -y && sudo apt-get install -y make wget
+      - name: Fetch protoc in path
+        run: sudo wget -O /usr/bin/protoc https://noto-public-bucket.s3.eu-central-1.amazonaws.com/protoc/protoc && sudo chmod +x /usr/bin/protoc
+      - name: Setup Maven Action TEST
+        uses: s4u/setup-maven-action@v1.3.1
+        with:
+          java-version: 8
+          maven-version: 3.8.2
+      - name: Package and upload
+        run: make pom.xml && mvn --batch-mode deploy -DskipTests -Dgpg.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
