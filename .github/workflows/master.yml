@@ -17,6 +17,6 @@ jobs:
         run: cat ~/.m2/settings.xml
       - name: Publish package
         run: make pom.xml && mvn --batch-mode deploy -DskipTests -Dgpg.skip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #  env:
+          #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
