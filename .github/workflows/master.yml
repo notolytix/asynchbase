@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     container: goyalzz/ubuntu-java-8-maven-docker-image
     steps:
       - uses: actions/checkout@v3
@@ -17,6 +20,6 @@ jobs:
         run: cat ~/.m2/settings.xml
       - name: Publish package
         run: make pom.xml && mvn --batch-mode deploy -DskipTests -Dgpg.skip
-          #  env:
-          #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
