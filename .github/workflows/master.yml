@@ -22,7 +22,7 @@ jobs:
         run: make pom.xml
       - uses: s4u/maven-settings-action@v2.8.0
       - name: Package and upload
-        run: mvn --batch-mode deploy -DskipTests -Dgpg.skip
+        run: mvn --batch-mode deploy -DskipTests -Dgpg.skip -e
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
