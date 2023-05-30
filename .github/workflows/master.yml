@@ -15,8 +15,6 @@ jobs:
       - run: apt-get update -y && apt-get install -y make protobuf-compiler
       #- name: Overwrite settings.xml
       #  run: mkdir -p ~/.m2/ && cp .github/workflows/settings.xml ~/.m2/settings.xml
-      - name: Make pom
-        run: make pom.xml
       - name: Setup Maven Action TEST
         uses: s4u/setup-maven-action@v1.3.1
         with:
@@ -24,7 +22,7 @@ jobs:
           maven-version: 3.8.2
       - run: cat ~/.m2/settings.xml
       - name: Package and upload
-        run: mvn --batch-mode deploy -DskipTests -Dgpg.skip -e
+        run: make pom.xml && mvn --batch-mode deploy -DskipTests -Dgpg.skip -e
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
