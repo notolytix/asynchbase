@@ -17,10 +17,14 @@ jobs:
       #  run: mkdir -p ~/.m2/ && cp .github/workflows/settings.xml ~/.m2/settings.xml
       - name: Make pom
         run: make pom.xml
-      - uses: s4u/maven-settings-action@v2.8.0
+      - name: Setup Maven Action TEST
+        uses: s4u/setup-maven-action@v1.3.1
+        with:
+          java-version: 8
+          maven-version: 3.8.2
       - run: cat ~/.m2/settings.xml
       - name: Package and upload
         run: mvn --batch-mode deploy -DskipTests -Dgpg.skip -e
-        #env:
-        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
