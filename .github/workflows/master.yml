@@ -18,6 +18,7 @@ jobs:
       - name: Make pom
         run: make pom.xml
       - uses: s4u/maven-settings-action@v2.8.0
+      - run: cat ~/.m2/settings.xml
       - name: Package and upload
         run: mvn --batch-mode deploy -DskipTests -Dgpg.skip -e
         #env:
