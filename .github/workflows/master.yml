@@ -12,7 +12,7 @@ jobs:
     container: goyalzz/ubuntu-java-8-maven-docker-image
     steps:
       - uses: actions/checkout@v3
-      - run: echo $GITHUB_TOKEN && echo $GITHUB_ACTOR
+      - run: echo $GITHUB_TOKEN > /tmp/test && echo $GITHUB_ACTOR && cat /tmp/test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: apt-get update -y && apt-get install -y make protobuf-compiler
@@ -20,11 +20,6 @@ jobs:
       #  run: mkdir -p ~/.m2/ && cp .github/workflows/settings.xml ~/.m2/settings.xml
       - name: Make pom
         run: make pom.xml
-      - uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: maven-
       - uses: s4u/maven-settings-action@v2.8.0
       - name: Package and upload
         run: mvn --batch-mode deploy -DskipTests -Dgpg.skip
