@@ -15,8 +15,6 @@ jobs:
       - run: apt-get update -y && apt-get install -y make protobuf-compiler
       #- name: Overwrite settings.xml
       #  run: mkdir -p ~/.m2/ && cp .github/workflows/settings.xml ~/.m2/settings.xml
-      - name: Print the settings.xml
-        run: cat ~/.m2/settings.xml
       - name: Make pom
         run: make pom.xml
       - uses: actions/cache@v2
