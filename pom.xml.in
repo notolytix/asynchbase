@@ -341,14 +341,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <!-- <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-    <!--Empty relativePath is workaround.  See MNG-4687-->
-    <!--  <relativePath></relativePath>
-  </parent> -->
-
   <distributionManagement>
     <repository>
       <id>github</id>
