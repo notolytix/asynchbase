@@ -5,11 +5,10 @@ on:
       - github-maven-repo
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-14.04
     permissions:
       contents: read
       packages: write
-    container: goyalzz/ubuntu-java-8-maven-docker-image
     steps:
       - uses: actions/checkout@v3
       - run: apt-get update -y && apt-get install -y make protobuf-compiler
