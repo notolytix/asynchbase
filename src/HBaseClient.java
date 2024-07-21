@@ -2227,6 +2227,11 @@ public final class HBaseClient {
     return sendRpcToRegion(request);
   }
 
+  public Deferred<Object> createTable(final CreateTableRequest request) {
+//    num_deletes.increment();
+    return sendRpcToRegion(request);
+  }
+
   /**
    * Eagerly prefetches and caches a table's region metadata from HBase.
    * @param table The name of the table whose metadata you intend to prefetch.
@@ -2423,6 +2428,9 @@ public final class HBaseClient {
     final byte[] table = request.table;
     final byte[] key = request.key;
     final RegionInfo region = getRegion(table, key);
+    System.out.println("sendRPC, table " + new String(table));
+    System.out.println("request: " + request.toString());
+    System.out.println("RPC " + request);
 
     final class RetryRpc implements Callback<Deferred<Object>, Object> {
       public Deferred<Object> call(final Object arg) {

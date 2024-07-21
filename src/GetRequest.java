@@ -584,7 +584,7 @@ public final class GetRequest extends BatchableRpc
     final ClientPB.GetRequest.Builder get = ClientPB.GetRequest.newBuilder()
       .setRegion(region.toProtobuf())
       .setGet(getPB().build());
-
+    System.out.println("serialize GET request " + toChannelBuffer(GetRequest.GGET, get.build()).toString());
     return toChannelBuffer(GetRequest.GGET, get.build());
   }
 

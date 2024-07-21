@@ -48,8 +48,14 @@ asynchbase_PROTOS := \
 	protobuf/Comparator.proto	\
 	protobuf/ErrorHandling.proto	\
 	protobuf/Filter.proto	\
+	protobuf/Master.proto	\
 	protobuf/MultiRowMutation.proto	\
+	protobuf/Procedure.proto	\
+	protobuf/Quota.proto	\
+	protobuf/RecentLogs.proto	\
 	protobuf/RPC.proto	\
+	protobuf/Snapshot.proto	\
+	protobuf/Table.proto	\
 	protobuf/Tracing.proto	\
 	protobuf/ZooKeeper.proto	\
 	protobuf/HBase.proto	\
