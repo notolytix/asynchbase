@@ -24,7 +24,6 @@ option java_generate_equals_and_hash = false;
 option optimize_for = LITE_RUNTIME;
 
 import "Cell.proto";
-
 /**
  * Table Name
  */

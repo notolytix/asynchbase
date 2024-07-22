@@ -17,8 +17,7 @@
  */
 // This file contains protocol buffers that are used for Online BalancerDecision history
 // To be used as Ring Buffer payload
-package hbase.pb;
-option java_package = "org.hbase.async.protobuf.generated";
+option java_package = "org.hbase.async.generated";
 option java_outer_classname = "RecentLogsPB";
 option java_generate_equals_and_hash = false;
 option optimize_for = LITE_RUNTIME;

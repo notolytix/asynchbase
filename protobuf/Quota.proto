@@ -15,8 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package hbase.pb;
-option java_package = "org.hbase.async.protobuf.generated";
+option java_package = "org.hbase.async.generated";
 option java_outer_classname = "QuotaPB";
 option java_generic_services = false;
 option java_generate_equals_and_hash = false;

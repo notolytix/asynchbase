@@ -17,13 +17,11 @@
  */
 // All to do with the Master.  Includes schema management since these
 // changes are run by the Master process.
-package hbase.pb;
 option java_package = "org.hbase.async.generated";
 option java_outer_classname = "MasterPB";
 option java_generic_services = false;
 option java_generate_equals_and_hash = false;
 option optimize_for = LITE_RUNTIME;
-import "Table.proto";
 import "HBase.proto";
 import "Client.proto";
 import "ClusterStatus.proto";

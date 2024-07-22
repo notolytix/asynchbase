@@ -15,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package hbase.pb;
 option java_package = "org.hbase.async.generated";
 option java_outer_classname = "SnapshotPB";
 option java_generic_services = false;
